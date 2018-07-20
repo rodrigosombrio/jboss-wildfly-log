@@ -1,0 +1,7 @@
+.log-content{
+	margin-top: 50px !important;
+}
+.log-content{
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;	
+	overflow: auto !important;
+}

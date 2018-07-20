@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mostrando</title>
+<link rel="stylesheet" type="text/css" href="/portal/resources/style-guide/css/fluig-style-guide.min.css">
+<script src="/portal/resources/js/jquery/jquery.js"></script>
+<script src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+<script src="/portal/resources/js/mustache/mustache-min.js"></script>
+<script src="/portal/resources/style-guide/js/fluig-style-guide.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/log_fluig/resources/css/log_fluig.css">
+<link rel="stylesheet" type="text/css" href="/portal/resources/style-guide/css/fluig-style-guide-colorpicker.min.css">
+<script src="/portal/resources/style-guide/js/fluig-style-guide-colorpicker.min.js"></script>
+<script src="/log_fluig/resources/js/script.js"></script>
+</head>
+<body class="fluig-style-guide">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div id="widget_content" class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span class="fluigicon fluigicon-brand fluigicon-md"></span> </a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="navbar-form navbar-left">
+					<select id="listFiles" class="form-control"></select>
+				</div>
+				<div class="navbar-form navbar-left">
+					<button type="button" id="downloadLog" class="btn btn-primary">
+						<span class="fluigicon fluigicon-download-circle fluigicon-sm"></span> Download
+					</button>
+					<button type="button" id="highlightLog" class="btn btn-primary">
+						<span class="fluigicon fluigicon-tint fluigicon-sm"></span> Highlight
+					</button>
+				</div>
+				<div class="navbar-form navbar-right">
+					<div class="checkbox">
+						<label> 	
+							<input type="checkbox" id="autoScroll"> Rolagem autom&#225;tica
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="log-content" style="overflow: auto !important;"></div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/template" class="highlight-template">
+	<div style="min-height: 400px;">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+        			<label for="highlightText">Texto</label>
+        			<input type="text" class="form-control" id="highlightText" placeholder="Insira o texto para ser marcado">
+    			</div>
+			</div>
+			<div class="col-md-1">
+				<h6><strong>Fonte:</strong></h6>
+			</div>
+			<div class="col-md-3">
+				<input class="form-control" id="colorpickerFont" type="text" />
+			</div>
+			<div class="col-md-1">
+				<h6><strong>Fundo:</strong></h6>
+			</div>
+			<div class="col-md-3">
+				<input class="form-control" id="colorpickerBackground" type="text" />
+			</div>
+			<div class="col-md-1">
+				<button type="button" id="addHighlight" class="btn btn-primary btn-sm">
+					<span class="fluigicon fluigicon-arrow-down fluigicon-xs"></span> Aplicar
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div id="highlightList"></div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/template" class="table-tamplate">
+	<tr>
+		<td><span style="color : {{font}}; background-color: {{background}};">{{text}}</span></td>
+		<td><span class="fluigicon fluigicon-remove-sign fluigicon-sm remove-highlight"></span></td>
+	</tr>
+</script>
+
